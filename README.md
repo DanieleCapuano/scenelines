@@ -77,6 +77,7 @@ export const API = {
         /* prev and succ are references to previous and successive scenes (with loop management) */
     }
 };
+```
 
 ## To test
 Simply exec a web browser pointing in the root folder and the open the /test subpath. (An example using the http-server simple webserver for node follows):
