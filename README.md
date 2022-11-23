@@ -60,6 +60,24 @@ setup_scenes({
 }
 ```
 
+Each file in the scenes folder must export an object as follows:
+```javascript
+//e.g. check the /test/scenes files as examples
+export const API = {
+    init: (config) => {
+        /* init code, (if defined) this is called BY THE scenelines initialization process! */
+        /* a reference to the input config is given to each scene in this function */
+    },
+    start: (prev, succ) => {
+        /* logic to let the scene start */
+        /* prev and succ are references to previous and successive scenes (with loop management) */
+    },
+    stop: (prev, succ) => {
+        /* logic to let the scene stop */
+        /* prev and succ are references to previous and successive scenes (with loop management) */
+    }
+};
+
 ## To test
 Simply exec a web browser pointing in the root folder and the open the /test subpath. (An example using the http-server simple webserver for node follows):
 
