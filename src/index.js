@@ -33,7 +33,9 @@ function _setup_scenes(setup_conf) {
             config.DEBUG = config._FEDEBUG_;
             window.CONFIG = config;
 
-            console.info("SCENES", scenes_files);
+            if (config.DEBUG) {
+                console.info("SCENES", scenes_files);
+            }
 
             scenes_array = Object.keys(scenes_files)
                 .filter(sc_name => scenes_order.indexOf(sc_name) !== -1)         //YOU CAN EXEC ONLY THE SCENES IN scenes_order
