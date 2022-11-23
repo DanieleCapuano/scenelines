@@ -1,0 +1,130 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./dist/scenelines.js":
+/*!****************************!*\
+  !*** ./dist/scenelines.js ***!
+  \****************************/
+/***/ ((module) => {
+
+eval("/*\n * ATTENTION: The \"eval\" devtool has been used (maybe by default in mode: \"development\").\n * This devtool is neither made for production nor for readable output files.\n * It uses \"eval()\" calls to create a separate source file in the browser devtools.\n * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)\n * or disable the default devtool with \"devtool: false\".\n * If you are looking for production-ready output files, see mode: \"production\" (https://webpack.js.org/configuration/mode/).\n */\n(function webpackUniversalModuleDefinition(root, factory) {\n  if (true) module.exports = factory();else {}\n})(self, () => {\n  return (/******/(() => {\n      // webpackBootstrap\n      /******/\n      \"use strict\";\n\n      /******/\n      var __webpack_modules__ = {\n        /***/\"./src/change-listener.js\":\n        /*!********************************!*\\\n          !*** ./src/change-listener.js ***!\n          \\********************************/\n        /***/\n        (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {\n          eval(\"__webpack_require__.r(__webpack_exports__);\\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\\n/* harmony export */   \\\"deregister_listener\\\": () => (/* binding */ deregister_listener),\\n/* harmony export */   \\\"prevent_defaults\\\": () => (/* binding */ prevent_defaults),\\n/* harmony export */   \\\"register_listener\\\": () => (/* binding */ register_listener)\\n/* harmony export */ });\\nconst prevent_defaults = _prevent_defaults;\\nconst register_listener = _register_listener;\\nconst deregister_listener = _deregister_listener;\\nlet mouseDownTimer = null;\\nconst CONFIG = window.CONFIG || {};\\nconst listeners = {},\\n  _cb_with_check = (name, callback, e) => {\\n    prevent_defaults(e);\\n    if (mouseDownTimer !== null) return;\\n    mouseDownTimer = setTimeout(() => {\\n      if (!listeners[name] || listeners[name].called) return;\\n      listeners[name].called = true;\\n      if (CONFIG._DEBUG_) console.info(\\\"*******CALLED \\\", name);\\n      callback(e);\\n    }, 600);\\n  },\\n  _mouse_up = e => {\\n    mouseDownTimer !== null && clearTimeout(mouseDownTimer);\\n    prevent_defaults(e);\\n    mouseDownTimer = null;\\n  },\\n  _default_prevent = e => {\\n    prevent_defaults(e);\\n    return false;\\n  };\\ndocument.addEventListener('mouseup', _mouse_up);\\ndocument.addEventListener('keyup', _mouse_up);\\ndocument.addEventListener('contextmenu', _default_prevent);\\nfunction _prevent_defaults(e) {\\n  (e || {}).preventDefault && e.preventDefault();\\n  (e || {}).stopPropagation && e.stopPropagation();\\n}\\nfunction _register_listener(name, cb, delay) {\\n  if (CONFIG._DEBUG_) console.info(\\\"REGISTERING INTERACTION FOR\\\", name);\\n  listeners[name] = _cb_with_check.bind(null, name, cb);\\n  const _do_register = () => {\\n    document.addEventListener('mousedown', listeners[name]);\\n    document.addEventListener('keydown', listeners[name]);\\n  };\\n  if (!delay) _do_register();else setTimeout(_do_register, delay);\\n}\\nfunction _deregister_listener(name) {\\n  if (CONFIG._DEBUG_) console.info(\\\"DE-REGISTERING INTERACTION FOR\\\", name);\\n  if (!listeners[name]) return;\\n  document.removeEventListener('mousedown', listeners[name]);\\n  document.removeEventListener('keydown', listeners[name]);\\n}\\n\\n//# sourceURL=webpack://scenelines/./src/change-listener.js?\");\n\n          /***/\n        },\n\n        /***/\"./src/config.js\":\n        /*!***********************!*\\\n          !*** ./src/config.js ***!\n          \\***********************/\n        /***/\n        (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {\n          eval(\"__webpack_require__.r(__webpack_exports__);\\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\\n/* harmony export */   \\\"get_config\\\": () => (/* binding */ get_config)\\n/* harmony export */ });\\nconst get_config = _get_config;\\nfunction _get_config(config_path) {\\n  return new Promise(res => {\\n    fetch(config_path).then(o => o.json()).then(conf => res(conf));\\n  });\\n}\\n\\n//# sourceURL=webpack://scenelines/./src/config.js?\");\n\n          /***/\n        },\n\n        /***/\"./src/index.js\":\n        /*!**********************!*\\\n          !*** ./src/index.js ***!\n          \\**********************/\n        /***/\n        (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {\n          eval(\"__webpack_require__.r(__webpack_exports__);\\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\\n/* harmony export */   \\\"default\\\": () => (__WEBPACK_DEFAULT_EXPORT__),\\n/* harmony export */   \\\"deregister_listener\\\": () => (/* reexport safe */ _change_listener__WEBPACK_IMPORTED_MODULE_1__.deregister_listener),\\n/* harmony export */   \\\"prevent_defaults\\\": () => (/* reexport safe */ _change_listener__WEBPACK_IMPORTED_MODULE_1__.prevent_defaults),\\n/* harmony export */   \\\"register_listener\\\": () => (/* reexport safe */ _change_listener__WEBPACK_IMPORTED_MODULE_1__.register_listener),\\n/* harmony export */   \\\"setup_scenes\\\": () => (/* binding */ setup_scenes)\\n/* harmony export */ });\\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config */ \\\"./src/config.js\\\");\\n/* harmony import */ var _change_listener__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./change-listener */ \\\"./src/change-listener.js\\\");\\n\\n\\nconst setup_scenes = _setup_scenes;\\n\\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\\n  setup_scenes,\\n  prevent_defaults: _change_listener__WEBPACK_IMPORTED_MODULE_1__.prevent_defaults,\\n  register_listener: _change_listener__WEBPACK_IMPORTED_MODULE_1__.register_listener,\\n  deregister_listener: _change_listener__WEBPACK_IMPORTED_MODULE_1__.deregister_listener\\n});\\n\\n////////////////////////////////////////////////////////////////////////////////////////\\n\\nfunction _setup_scenes(setup_conf) {\\n  const {\\n    config_path,\\n    scenes_files\\n  } = setup_conf;\\n  return new Promise((res, rej) => {\\n    (0,_config__WEBPACK_IMPORTED_MODULE_0__.get_config)(config_path).then(_cfg => {\\n      const config = Object.assign({}, _cfg.default || _cfg);\\n      const scenes_obj = config.scenes;\\n      const scenes_order = Object.keys(scenes_obj).map(k => scenes_obj[k]);\\n      let scenes_array = [];\\n      config.DEBUG = config._FEDEBUG_;\\n      window.CONFIG = config;\\n      console.info(\\\"SCENES\\\", scenes_files);\\n      scenes_array = Object.keys(scenes_files).filter(sc_name => scenes_order.indexOf(sc_name) !== -1) //YOU CAN EXEC ONLY THE SCENES IN scenes_order\\n      .sort((sc_a, sc_b) => {\\n        //...IN THE ORDER SPECIFIED IN scenes_order\\n        return scenes_order.indexOf(sc_a) < scenes_order.indexOf(sc_b) ? -1 : 1;\\n      }).map((sc, i, all_scenes_keys) => {\\n        let scene = scenes_files[sc];\\n        scene.API.init(config);\\n        scene.API.start = scene.API.start.bind(null, get_sibling(scenes_files, all_scenes_keys, i, \\\"prev\\\", config), get_sibling(scenes_files, all_scenes_keys, i, \\\"succ\\\", config));\\n        scene.API.stop = scene.API.stop.bind(null, get_sibling(scenes_files, all_scenes_keys, i, \\\"prev\\\", config), get_sibling(scenes_files, all_scenes_keys, i, \\\"succ\\\", config));\\n        return scene;\\n      });\\n      res({\\n        config,\\n        scenes_array\\n      });\\n    });\\n  });\\n}\\nconst _blank_scene = {\\n  API: {\\n    start: () => {},\\n    stop: () => {}\\n  }\\n};\\nfunction get_sibling(scenes_files, keys_a, i, direction, config) {\\n  const {\\n    scenes_loop\\n  } = config;\\n  const sc_index = direction === 'prev' ? i === 0 ? scenes_loop ? keys_a.length - 1 : -1 : i - 1 : i === keys_a.length - 1 ? scenes_loop ? 0 : -1 : i + 1;\\n  return (scenes_files[keys_a[sc_index]] || _blank_scene).API;\\n}\\n\\n//# sourceURL=webpack://scenelines/./src/index.js?\");\n\n          /***/\n        }\n\n        /******/\n      };\n      /************************************************************************/\n      /******/ // The module cache\n      /******/\n      var __webpack_module_cache__ = {};\n      /******/\n      /******/ // The require function\n      /******/\n      function __nested_webpack_require_8346__(moduleId) {\n        /******/ // Check if module is in cache\n        /******/var cachedModule = __webpack_module_cache__[moduleId];\n        /******/\n        if (cachedModule !== undefined) {\n          /******/return cachedModule.exports;\n          /******/\n        }\n        /******/ // Create a new module (and put it into the cache)\n        /******/\n        var module = __webpack_module_cache__[moduleId] = {\n          /******/ // no module.id needed\n          /******/ // no module.loaded needed\n          /******/exports: {}\n          /******/\n        };\n        /******/\n        /******/ // Execute the module function\n        /******/\n        __webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_8346__);\n        /******/\n        /******/ // Return the exports of the module\n        /******/\n        return module.exports;\n        /******/\n      }\n      /******/\n      /************************************************************************/\n      /******/ /* webpack/runtime/define property getters */\n      /******/\n      (() => {\n        /******/ // define getter functions for harmony exports\n        /******/__nested_webpack_require_8346__.d = (exports, definition) => {\n          /******/for (var key in definition) {\n            /******/if (__nested_webpack_require_8346__.o(definition, key) && !__nested_webpack_require_8346__.o(exports, key)) {\n              /******/Object.defineProperty(exports, key, {\n                enumerable: true,\n                get: definition[key]\n              });\n              /******/\n            }\n            /******/\n          }\n          /******/\n        };\n        /******/\n      })();\n      /******/\n      /******/ /* webpack/runtime/hasOwnProperty shorthand */\n      /******/\n      (() => {\n        /******/__nested_webpack_require_8346__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop);\n        /******/\n      })();\n      /******/\n      /******/ /* webpack/runtime/make namespace object */\n      /******/\n      (() => {\n        /******/ // define __esModule on exports\n        /******/__nested_webpack_require_8346__.r = exports => {\n          /******/if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {\n            /******/Object.defineProperty(exports, Symbol.toStringTag, {\n              value: 'Module'\n            });\n            /******/\n          }\n          /******/\n          Object.defineProperty(exports, '__esModule', {\n            value: true\n          });\n          /******/\n        };\n        /******/\n      })();\n      /******/\n      /************************************************************************/\n      /******/\n      /******/ // startup\n      /******/ // Load entry module and return exports\n      /******/ // This entry module can't be inlined because the eval devtool is used.\n      /******/\n      var __webpack_exports__ = __nested_webpack_require_8346__(\"./src/index.js\");\n      /******/\n      /******/\n      return __webpack_exports__;\n      /******/\n    })()\n  );\n});\n\n//# sourceURL=webpack://scenelines/./dist/scenelines.js?");
+
+/***/ }),
+
+/***/ "./test/scenelines-test.js":
+/*!*********************************!*\
+  !*** ./test/scenelines-test.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dist_scenelines__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../dist/scenelines */ \"./dist/scenelines.js\");\n/* harmony import */ var _dist_scenelines__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_dist_scenelines__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _scenes_s1__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scenes\\s1 */ \"./test/scenes/s1.js\");\n/* harmony import */ var _scenes_s2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scenes\\s2 */ \"./test/scenes/s2.js\");\n\nconst _dirImport = {};\n\n\n_dirImport.s2 = _scenes_s2__WEBPACK_IMPORTED_MODULE_2__\n_dirImport.s1 = _scenes_s1__WEBPACK_IMPORTED_MODULE_1__\nconst scenes_files = _dirImport;\n(0,_dist_scenelines__WEBPACK_IMPORTED_MODULE_0__.setup_scenes)({\n  config_path: '/test/config.json',\n  scenes_files\n}).then(result => {\n  console.info(\"SCENES SETUP DONE!\", result);\n  const {\n    config,\n    scenes_array\n  } = result;\n  scenes_array.forEach((sc, i) => {\n    setTimeout(() => sc.API.start(config), 1000 * i);\n    if (i === scenes_array.length - 1) {\n      setTimeout(() => {\n        sc.API.stop(config);\n        console.info(\"ALL SCENES EXECUTED\" + (config.scenes_loop ? \" (Loop would start again here)\" : \"\"));\n      }, 2000 * i);\n    }\n  });\n});\n\n//# sourceURL=webpack://scenelines/./test/scenelines-test.js?");
+
+/***/ }),
+
+/***/ "./test/scenes/s1.js":
+/*!***************************!*\
+  !*** ./test/scenes/s1.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"API\": () => (/* binding */ API)\n/* harmony export */ });\nlet started = false;\nconst API = {\n  init: () => console.info(\"INIT SH1\"),\n  start: prev => {\n    prev.stop();\n    started = true;\n    console.info(\"SH1 STARTED\");\n  },\n  stop: () => {\n    if (started) {\n      started = false;\n      console.info(\"SH1 STOPPED\");\n    }\n  }\n};\n\n//# sourceURL=webpack://scenelines/./test/scenes/s1.js?");
+
+/***/ }),
+
+/***/ "./test/scenes/s2.js":
+/*!***************************!*\
+  !*** ./test/scenes/s2.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"API\": () => (/* binding */ API)\n/* harmony export */ });\nlet started = false;\nconst API = {\n  init: () => console.info(\"INIT SH2\"),\n  start: prev => {\n    prev.stop();\n    started = true;\n    console.info(\"SH2 STARTED\");\n  },\n  stop: () => {\n    if (started) {\n      started = false;\n      console.info(\"SH2 STOPPED\");\n    }\n  }\n};\n\n//# sourceURL=webpack://scenelines/./test/scenes/s2.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./test/scenelines-test.js");
+/******/ 	
+/******/ })()
+;
