@@ -20,11 +20,22 @@ export default {
 ////////////////////////////////////////////////////////////////////////////////////////
 
 function _setup_scenes(setup_conf) {
+    const { search } = window.location;
+    let params = {};
+    if (search !== "") {
+        //read parameters from URL location
+        params = search.split("&").reduce((p_obj, str) => {
+            const a = str.split("=");
+            p_obj[a[0].replace("?", "")] = a[1];
+            return p_obj;
+        }, {});
+    }
+
     const { config_path, scenes_files } = setup_conf;
 
     return new Promise((res, rej) => {
         get_config(config_path).then((_cfg) => {
-            const config = Object.assign({}, _cfg.default || _cfg);
+            const config = Object.assign({}, _cfg.default || _cfg, params);
 
             const scenes_obj = config.scenes;
             const scenes_order = Object.keys(scenes_obj).map(k => scenes_obj[k]);
