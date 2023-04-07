@@ -51,9 +51,12 @@ setup_scenes({
 ## Configuration
 ```javascript
 {
-    "scenes_loop": true,    //it will make a loop of scenes
-    "_FE_DEBUG_": false     //this shows more console info
-    "scenes": {             //an object with the scenes names. Each name is one filename in the scenes folder
+    "scenes_loop": true,      //it will make a loop of scenes
+    "_FE_DEBUG_": false       //this shows more console info
+    "long_press_time": 4000,  //overwrites the default of 3000ms that's the time you should keep the button 
+                              //pressed in order to force the execution of the registered listener 
+                              //despite of any set delay
+    "scenes": {               //an object with the scenes names. Each one is a filename in the scenes folder
         "0": "s1",
         "1": "s2"
     }

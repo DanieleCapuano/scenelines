@@ -1,5 +1,6 @@
 {
     "scenes_loop": true,
+    "long_press_time": 4000,
     "scenes": {
         "0": "s1",
         "1": "s2"
