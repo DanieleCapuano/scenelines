@@ -4,10 +4,10 @@ export const deregister_listener = _deregister_listener;
 
 let CONFIG = window.CONFIG,
     mouseDownTimer = null,
-    longPressTime = (CONFIG || {}).long_press_time || 3000;
+    longPressTime = (CONFIG || {}).long_press_time || 3000,
+    timeoutInterval = (CONFIG || {}).click_press_interval || 1000;
 
 const
-    timeoutInterval = 500,
     listeners = {},
     _mouse_up = (e) => {
         (mouseDownTimer !== null) && clearInterval(mouseDownTimer);
@@ -20,6 +20,7 @@ const
         if (mouseDownTimer !== null) return;
 
         longPressTime = (CONFIG || {}).long_press_time || 3000;
+        timeoutInterval = (CONFIG || {}).click_press_interval || 1000
 
         let mouseDownNow = performance.now();
         mouseDownTimer = setInterval(() => {
@@ -59,7 +60,7 @@ function _prevent_defaults(e) {
 function _register_listener(name, cb, delay, config) {
     CONFIG = CONFIG || config;
     if ((CONFIG || {})._DEBUG_) console.info("REGISTERING INTERACTION FOR", name);
-    listeners[name] = _cb_with_check.bind(null, name, cb, performance.now() + delay);
+    listeners[name] = _cb_with_check.bind(null, name, cb, performance.now() + (delay || 0));
 
     document.addEventListener('mousedown', listeners[name]);
     document.addEventListener('keydown', listeners[name]);

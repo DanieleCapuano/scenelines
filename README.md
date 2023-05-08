@@ -51,12 +51,16 @@ setup_scenes({
 ## Configuration
 ```javascript
 {
-    "scenes_loop": true,      //it will make a loop of scenes
-    "_FE_DEBUG_": false       //this shows more console info
-    "long_press_time": 4000,  //overwrites the default of 3000ms that's the time you should keep the button 
-                              //pressed in order to force the execution of the registered listener 
-                              //despite of any set delay
-    "scenes": {               //an object with the scenes names. Each one is a filename in the scenes folder
+    "scenes_loop": true,           //it will make a loop of scenes
+    "_FE_DEBUG_": false            //this shows more console info
+    "long_press_time": 4000,       //overwrites the default of 3000ms that's the time you should keep the button 
+                                   //pressed in order to force the execution of the registered listener 
+                                   //despite of any set delay
+    "click_press_interval": 1000,  //the interval time (1000ms default) used to check the time passed from 
+                                   //mousedown to the current time. A longer time causes the any possible 
+                                   //click to be recognized in a less reactive way (e.g. to avoid spurious clicks you 
+                                   //should consider to use 1sec or more)
+    "scenes": {                    //an object with the scenes names. Each one is a filename in the scenes folder
         "0": "s1",
         "1": "s2"
     }
