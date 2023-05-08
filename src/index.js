@@ -43,6 +43,8 @@ function _setup_scenes(setup_conf) {
 
             if (!config.light_addresses && !config.light_options) {
                 console.warn("You should provide light_addresses || light_options. No lighting information available.");
+                config.light_addresses = [];
+                config.light_options = {};
             }
 
             if (!config.light_addresses) {
