@@ -36,6 +36,18 @@ function _setup_scenes(setup_conf) {
     return new Promise((res, rej) => {
         get_config(config_path).then((_cfg) => {
             const config = Object.assign({}, _cfg.default || _cfg, params);
+            if (!config.scenes) {
+                console.error("No scenes description found. Exiting.");
+                return;
+            }
+
+            if (!config.light_addresses && !config.light_options) {
+                console.warn("You should provide light_addresses || light_options. No lighting information available.");
+            }
+
+            if (!config.light_addresses) {
+                config.light_addresses = Object.keys(config.light_options).map(s => parseInt(s));
+            }
 
             const scenes_obj = config.scenes;
             const scenes_order = Object.keys(scenes_obj).map(k => scenes_obj[k]);
